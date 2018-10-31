@@ -1,21 +1,20 @@
 package com.example.bruce.triples_1_5;
 
 import org.junit.Test;
-import android.support.v7.app.AppCompatActivity;
 
 import static org.junit.Assert.*;
 
-public class CardTest extends AppCompatActivity {
+public class CardTest {
 
-    Card[] tests = {new Card(Shape.CIRCLE, Color.BLUE, 1, 1, R.drawable.circle_blue_1_1, R.drawable.circle_blue_1_1_selected),
-            new Card(Shape.NO_SHAPE, Color.NO_COLOR, 1, 2, R.drawable.blank_0_0_0, R.drawable.blank_0_0_0),
-            new Card(Shape.SQUARE, Color.RED, 0, 3, R.drawable.square_red_3_0, R.drawable.square_red_3_0_selected),
-            new Card(Shape.TRIANGLE, Color.GREEN, 2, 2, R.drawable.triangle_green_2_2, R.drawable.triangle_green_2_2_selected), };
+    Card[] tests = {new Card(Card.Shape.CIRCLE, Card.Color.BLUE, 1, 1, R.drawable.circle_blue_1_1, R.drawable.circle_blue_1_1_selected),
+            new Card(Card.Shape.NO_SHAPE, Card.Color.NO_COLOR, 1, 2, R.drawable.blank_0_0_0, R.drawable.blank_0_0_0),
+            new Card(Card.Shape.SQUARE, Card.Color.RED, 0, 3, R.drawable.square_red_3_0, R.drawable.square_red_3_0_selected),
+            new Card(Card.Shape.TRIANGLE, Card.Color.GREEN, 2, 2, R.drawable.triangle_green_2_2, R.drawable.triangle_green_2_2_selected), };
 
     @Test
     public void getShape() {
-        Shape[] shapeUsed = {Shape.CIRCLE, Shape.NO_SHAPE, Shape.SQUARE, Shape.TRIANGLE};
-        Shape[] shapeExpected = new Shape[4];
+        Card.Shape[] shapeUsed = {Card.Shape.CIRCLE, Card.Shape.NO_SHAPE, Card.Shape.SQUARE, Card.Shape.TRIANGLE};
+        Card.Shape[] shapeExpected = new Card.Shape[4];
         for (int i = 0; i < 4; i++) {
             shapeExpected[i] = tests[i].getShape();
         }
@@ -24,8 +23,8 @@ public class CardTest extends AppCompatActivity {
 
     @Test
     public void getColor() {
-        Color[] colorUsed = {Color.BLUE, Color.NO_COLOR, Color.RED, Color.GREEN};
-        Color[] colorExpected = new Color[4];
+        Card.Color[] colorUsed = {Card.Color.BLUE, Card.Color.NO_COLOR, Card.Color.RED, Card.Color.GREEN};
+        Card.Color[] colorExpected = new Card.Color[4];
         for (int i = 0; i < 4; i++) {
             colorExpected[i] = tests[i].getColor();
         }

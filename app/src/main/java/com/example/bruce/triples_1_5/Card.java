@@ -1,13 +1,13 @@
 package com.example.bruce.triples_1_5;
 
-enum Shape {
-    SQUARE, TRIANGLE, CIRCLE, NO_SHAPE;
-}
-enum Color {
-    RED, BLUE, GREEN, NO_COLOR;
-}
-
 public class Card {
+
+    enum Shape {
+        SQUARE, TRIANGLE, CIRCLE, NO_SHAPE;
+    }
+    enum Color {
+        RED, BLUE, GREEN, NO_COLOR;
+    }
 
     private Shape mShape;
     private Color mColor;
