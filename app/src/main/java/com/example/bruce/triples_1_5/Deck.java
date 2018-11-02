@@ -38,8 +38,7 @@ public class Deck {
     }
 
     protected Card getCard(int index) {
-        if (mShuffledDeck.size() > 0) return mShuffledDeck.get(index);
-        else return mOrderedDeck[0];
+        return mShuffledDeck.get(index);
     }
 
     protected int getNumCardsInDeck( ) {
@@ -47,7 +46,8 @@ public class Deck {
     }
 
     protected Card getTopCard( ) {
-        return mShuffledDeck.remove(0);
+        if (mShuffledDeck.size() > 0) return mShuffledDeck.remove(0);
+        else return mOrderedDeck[0];
     }
 
     private void populateOrderedDeckWithCards(int numOfCardsInDeck){
