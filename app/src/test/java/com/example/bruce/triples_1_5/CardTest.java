@@ -46,7 +46,7 @@ public class CardTest {
         int[] countUsed = {1,2,3,2};
         int[] countExpected = new int[4];
         for (int i = 0; i < 4; i++) {
-            countExpected[i] = tests[i].getCount();
+            countExpected[i] = tests[i].getNumber();
         }
         assertArrayEquals(countUsed, countExpected);
     }

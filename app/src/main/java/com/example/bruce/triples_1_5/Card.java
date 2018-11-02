@@ -12,16 +12,16 @@ public class Card {
     private Shape mShape;
     private Color mColor;
     private int mAlpha;
-    private int mCount;
+    private int mNumber;
     private boolean mIsSelected = false;
     private int mImageID;
     private int mSelectedImageID;
 
-    public Card(Shape shape, Color color, int alpha, int count, int imageID, int selectedImageID) {
+    public Card(Shape shape, Color color, int alpha, int number, int imageID, int selectedImageID) {
         mShape = shape;
         mColor = color;
         mAlpha = alpha;
-        mCount = count;
+        mNumber = number;
         mImageID = imageID;
         mSelectedImageID = selectedImageID;
     }
@@ -29,7 +29,7 @@ public class Card {
     protected Shape getShape() {return mShape;}
     protected Color getColor() {return mColor;}
     protected int getAlpha() {return mAlpha;}
-    protected int getCount() {return mCount;}
+    protected int getNumber() {return mNumber;}
     protected boolean getIsSelected() {return mIsSelected;}
     protected void setIsSelected(boolean isSelected) {mIsSelected = isSelected;}
     protected int getImageID() {return mImageID;}

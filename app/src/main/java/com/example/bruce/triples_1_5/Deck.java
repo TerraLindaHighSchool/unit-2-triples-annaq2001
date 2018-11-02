@@ -46,8 +46,6 @@ public class Deck {
     }
 
     protected Card getTopCard( ) {
-//        Card topCard = mShuffledDeck.remove(0);
-//        return topCard;
         return mShuffledDeck.remove(0);
     }
 
