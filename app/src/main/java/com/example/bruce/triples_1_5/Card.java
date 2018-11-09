@@ -17,7 +17,7 @@ public class Card {
     private int mImageID;
     private int mSelectedImageID;
 
-    public Card(Shape shape, Color color, int alpha, int number, int imageID, int selectedImageID) {
+    public Card(Shape shape, Color color, int number, int alpha, int imageID, int selectedImageID) {
         mShape = shape;
         mColor = color;
         mAlpha = alpha;

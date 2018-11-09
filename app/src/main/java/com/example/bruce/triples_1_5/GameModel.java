@@ -24,7 +24,7 @@ public class GameModel {
  *************************************************/
 
     protected Card getCardOnBoard(int index) {
-        return deck.getCard(index);
+        return mCardOnBoard.get(index);
     }
 
     protected int getNumOfCardsSelected() {
@@ -55,7 +55,7 @@ public class GameModel {
     }
 
     protected void replaceCardOnBoard(int index){
-        // to be implemented
+        mCardOnBoard.set(index, deck.getTopCard());
     }
 
     /*************************************************
@@ -63,15 +63,15 @@ public class GameModel {
      *************************************************/
 
     protected void addSelectedCardIndex(int cardIndex){
-        // to be implemented
+        mSelectedCards.add(cardIndex);
     }
 
     protected void removeSelectedCardIndex(int cardIndex){
-        // to be implemented
+        mSelectedCards.remove(new Integer(cardIndex));
     }
 
     protected void resetSelectedCardIndices(){
-        // to be implemented
+        mSelectedCards.clear();
     }
 
     /*************************************************
@@ -87,8 +87,11 @@ public class GameModel {
      *************************************************/
 
     protected boolean isTriple(int firstCard, int secondCard, int thirdCard){
-        // to be implemented
-        return true; // temporary placeholder until implementation
+        Card[] cards = {getCardOnBoard(firstCard), getCardOnBoard(secondCard), getCardOnBoard(thirdCard)};
+        return (cards[0].getShape().ordinal() + cards[1].getShape().ordinal() + cards[2].getShape().ordinal()) % 3 == 0
+                && (cards[0].getColor().ordinal() + cards[1].getColor().ordinal() + cards[2].getColor().ordinal()) % 3 == 0
+                && (cards[0].getNumber() + cards[1].getNumber() + cards[2].getNumber()) % 3 == 0
+                && (cards[0].getAlpha() + cards[1].getAlpha() + cards[2].getAlpha()) % 3 == 0;
     }
 
     protected boolean playIsPossible(){

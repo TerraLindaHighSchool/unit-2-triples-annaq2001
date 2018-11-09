@@ -15,7 +15,7 @@ public class Deck {
 
     private void createShuffledDeck( ) {
         mShuffledDeck = new ArrayList<Card>();
-        int[] indices = new int[getNumCardsInDeck() + 1];
+        int[] indices = new int[mOrderedDeck.length];
         int indicesIndex = 0;
         for (int i = 0; i < indices.length; i++) indices[i] = mOrderedDeck.length;
         for (int i = 0; i < mOrderedDeck.length; i++) {
@@ -42,7 +42,7 @@ public class Deck {
     }
 
     protected int getNumCardsInDeck( ) {
-        return mOrderedDeck.length - 1;
+        return mShuffledDeck.size();
     }
 
     protected Card getTopCard( ) {
