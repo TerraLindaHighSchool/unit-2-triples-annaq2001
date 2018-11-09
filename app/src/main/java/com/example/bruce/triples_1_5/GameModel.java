@@ -99,8 +99,14 @@ public class GameModel {
     }
 
     protected boolean playIsPossible(){
-        // to be implemented
-        return true;  // temporary placeholder until implementation
+        for (int i = 0; i < mCardOnBoard.size(); i++) {
+            for (int j = i + 1; j < mCardOnBoard.size(); i++) {
+                for (int k = j + 1; k < mCardOnBoard.size(); i++) {
+                    if (isTriple(i,j,k)) return true;
+                }
+            }
+        }
+        return false;
     }
 
     protected String getGameOverMessage(Context context){
