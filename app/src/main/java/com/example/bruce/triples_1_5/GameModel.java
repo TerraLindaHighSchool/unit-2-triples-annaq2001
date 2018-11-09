@@ -79,7 +79,11 @@ public class GameModel {
      *************************************************/
     protected int updateScore() {
         // to be implemented
-        return -1; // temporary placeholder until implementation
+        long mEndTime = System.currentTimeMillis();
+        double mElapsedTime = (double) (mEndTime - mStartTime) / 1000;
+        double deltaScore = Math.floor(100 / mElapsedTime);
+        mScore += (deltaScore > 0.0) ? deltaScore : 1;
+        return mScore; // temporary placeholder until implementation
     }
 
     /*************************************************
