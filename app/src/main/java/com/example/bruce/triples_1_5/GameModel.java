@@ -82,7 +82,7 @@ public class GameModel {
         long mEndTime = System.currentTimeMillis();
         double mElapsedTime = (double) (mEndTime - mStartTime) / 1000;
         double deltaScore = Math.floor(100 / mElapsedTime);
-        mScore += (deltaScore > 0.0) ? deltaScore : 1;
+        mScore += ((deltaScore > 0.0) ? deltaScore : 1) * mLevel;
         return mScore; // temporary placeholder until implementation
     }
 
@@ -100,8 +100,11 @@ public class GameModel {
 
     protected boolean playIsPossible(){
         for (int i = 0; i < mCardOnBoard.size(); i++) {
-            for (int j = i + 1; j < mCardOnBoard.size(); i++) {
-                for (int k = j + 1; k < mCardOnBoard.size(); i++) {
+            if (getCardOnBoard(i).getShape() == Card.Shape.NO_SHAPE) continue;
+            for (int j = i + 1; j < mCardOnBoard.size(); j++) {
+                if (getCardOnBoard(j).getShape() == Card.Shape.NO_SHAPE) continue;
+                for (int k = j + 1; k < mCardOnBoard.size(); k++) {
+                    if (getCardOnBoard(k).getShape() == Card.Shape.NO_SHAPE) continue;
                     if (isTriple(i,j,k)) return true;
                 }
             }
