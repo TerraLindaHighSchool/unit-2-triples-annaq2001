@@ -31,8 +31,12 @@ public class GameModel {
         return mSelectedCards.size();
     }
 
-    protected int getNumOfCardsInDeck() {
+    protected int getNumOfCardsOnBoard() {
         return mCardOnBoard.size();
+    }
+
+    protected int getNumOfCardsInDeck() {
+        return deck.getNumCardsInDeck();
     }
 
     protected int getSelectedCardIndex(int index) {

@@ -72,7 +72,70 @@ public class GameActivity extends AppCompatActivity {
             game.addCardToBoard();
             mImageArray[imageIndex].setImageResource(game.getCardOnBoard(imageIndex).getImageID());
         }
-        if(!game.playIsPossible()) gameOver();
+        if(!game.playIsPossible()) {
+            if (game.getNumOfCardsOnBoard() < MAX_IMAGES && game.getNumOfCardsInDeck() != 0) {
+                int numOfCardsOnBoard = game.getNumOfCardsOnBoard();
+                for (int i = numOfCardsOnBoard; i < (numOfCardsOnBoard + 3); i++) {
+                    game.addCardToBoard();
+                    mImageArray[i].setImageResource(game.getCardOnBoard(i).getImageID());
+                    mImageArray[i].setVisibility(View.VISIBLE);
+                    final int imageIndex = i;
+                    mImageArray[imageIndex].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Card cardSelected = game.getCardOnBoard(imageIndex);
+                            // Card already selected, so this unselects it ******************
+                            if (cardSelected.getIsSelected()) {
+                                mImageArray[imageIndex].setImageResource(cardSelected.getImageID());
+                                cardSelected.setIsSelected(false);
+                                game.removeSelectedCardIndex(imageIndex);
+                                // Card being selected  *******************************************
+                            } else {
+                                mImageArray[imageIndex].setImageResource(cardSelected.getSelectedImageID());
+                                cardSelected.setIsSelected(true);
+                                game.addSelectedCardIndex(imageIndex);
+                            }
+                            // Checks to see if 3 cards have been selected **************************
+                            if (game.getNumOfCardsSelected() == 3)
+                                endRound();
+                        }
+                    });
+                }
+                if(!game.playIsPossible()) {
+                    if (game.getNumOfCardsOnBoard() < MAX_IMAGES && game.getNumOfCardsInDeck() != 0) {
+                        numOfCardsOnBoard = game.getNumOfCardsOnBoard();
+                        for (int i = numOfCardsOnBoard; i < (numOfCardsOnBoard + 3); i++) {
+                            game.addCardToBoard();
+                            mImageArray[i].setImageResource(game.getCardOnBoard(i).getImageID());
+                            mImageArray[i].setVisibility(View.VISIBLE);
+                            final int imageIndex = i;
+                            mImageArray[imageIndex].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Card cardSelected = game.getCardOnBoard(imageIndex);
+                                    // Card already selected, so this unselects it ******************
+                                    if (cardSelected.getIsSelected()) {
+                                        mImageArray[imageIndex].setImageResource(cardSelected.getImageID());
+                                        cardSelected.setIsSelected(false);
+                                        game.removeSelectedCardIndex(imageIndex);
+                                        // Card being selected  *******************************************
+                                    } else {
+                                        mImageArray[imageIndex].setImageResource(cardSelected.getSelectedImageID());
+                                        cardSelected.setIsSelected(true);
+                                        game.addSelectedCardIndex(imageIndex);
+                                    }
+                                    // Checks to see if 3 cards have been selected **************************
+                                    if (game.getNumOfCardsSelected() == 3)
+                                        endRound();
+                                }
+                            });
+                        }
+                    }
+                    else gameOver();
+                }
+            }
+            else gameOver();
+        }
         updateCardsRemaining();
     }
 
@@ -133,7 +196,70 @@ public class GameActivity extends AppCompatActivity {
                     game.setStartTime();
                 }
                 game.resetSelectedCardIndices();
-                if(!game.playIsPossible()) gameOver();
+                if(!game.playIsPossible()) {
+                    if (game.getNumOfCardsOnBoard() < MAX_IMAGES && game.getNumOfCardsInDeck() != 0) {
+                        int numOfCardsOnBoard = game.getNumOfCardsOnBoard();
+                        for (int i = numOfCardsOnBoard; i < (numOfCardsOnBoard + 3); i++) {
+                            game.addCardToBoard();
+                            mImageArray[i].setImageResource(game.getCardOnBoard(i).getImageID());
+                            mImageArray[i].setVisibility(View.VISIBLE);
+                            final int imageIndex = i;
+                            mImageArray[imageIndex].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Card cardSelected = game.getCardOnBoard(imageIndex);
+                                    // Card already selected, so this unselects it ******************
+                                    if (cardSelected.getIsSelected()) {
+                                        mImageArray[imageIndex].setImageResource(cardSelected.getImageID());
+                                        cardSelected.setIsSelected(false);
+                                        game.removeSelectedCardIndex(imageIndex);
+                                        // Card being selected  *******************************************
+                                    } else {
+                                        mImageArray[imageIndex].setImageResource(cardSelected.getSelectedImageID());
+                                        cardSelected.setIsSelected(true);
+                                        game.addSelectedCardIndex(imageIndex);
+                                    }
+                                    // Checks to see if 3 cards have been selected **************************
+                                    if (game.getNumOfCardsSelected() == 3)
+                                        endRound();
+                                }
+                            });
+                        }
+                        if(!game.playIsPossible()) {
+                            if (game.getNumOfCardsOnBoard() < MAX_IMAGES && game.getNumOfCardsInDeck() != 0) {
+                                numOfCardsOnBoard = game.getNumOfCardsOnBoard();
+                                for (int i = numOfCardsOnBoard; i < (numOfCardsOnBoard + 3); i++) {
+                                    game.addCardToBoard();
+                                    mImageArray[i].setImageResource(game.getCardOnBoard(i).getImageID());
+                                    mImageArray[i].setVisibility(View.VISIBLE);
+                                    final int imageIndex = i;
+                                    mImageArray[imageIndex].setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Card cardSelected = game.getCardOnBoard(imageIndex);
+                                            // Card already selected, so this unselects it ******************
+                                            if (cardSelected.getIsSelected()) {
+                                                mImageArray[imageIndex].setImageResource(cardSelected.getImageID());
+                                                cardSelected.setIsSelected(false);
+                                                game.removeSelectedCardIndex(imageIndex);
+                                                // Card being selected  *******************************************
+                                            } else {
+                                                mImageArray[imageIndex].setImageResource(cardSelected.getSelectedImageID());
+                                                cardSelected.setIsSelected(true);
+                                                game.addSelectedCardIndex(imageIndex);
+                                            }
+                                            // Checks to see if 3 cards have been selected **************************
+                                            if (game.getNumOfCardsSelected() == 3)
+                                                endRound();
+                                        }
+                                    });
+                                }
+                            }
+                            else gameOver();
+                        }
+                    }
+                    else gameOver();
+                }
             }
         });
     }
